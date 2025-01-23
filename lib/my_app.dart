@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/routes/routers.dart';
 import 'core/routes/routes_name.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final AppRouter appRouter;
+  const MyApp({
+    super.key,
+    required this.appRouter,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +23,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         debugShowCheckedModeBanner: false,
-        // onGenerateRoute: widget.appRouter.generateRoute,
+        onGenerateRoute: appRouter.generateRoute,
         initialRoute: Routers.onBorder,
       ),
     );
