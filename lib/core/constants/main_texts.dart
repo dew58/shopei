@@ -17,4 +17,23 @@ class MainTexts {
   static String password = "Password";
 
   ///log in
+
+  static String logInYourAccount = "Login to Your account";
+  static String greatToSeeYou = "It's great to see you again.";
+  static String forgetYourPassword = "Forgot your password?";
+  static String logInbutton = "Login";
+  static String loginGoogle = "Login with Google";
+  static String loginFacebook = "Login with Facebook";
+  static String donthaveaccount = "Don't have account?";
+  static String join = "Join";
+
+  ///home
+
+  static String discover = "Discover";
+  static String searchBar = "Search for ...";
+  static String home = "Home";
+  static String search = "Search";
+  static String saved = "Saved";
+  static String cart = "Cart";
+  static String account = "Account";
 }
