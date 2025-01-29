@@ -18,10 +18,6 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         title: "Shopie",
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
         debugShowCheckedModeBanner: false,
         onGenerateRoute: appRouter.generateRoute,
         initialRoute: Routers.onBorder,

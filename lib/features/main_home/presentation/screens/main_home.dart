@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:shopie/core/helper/spacer.dart';
+
+import 'package:shopie/features/main_home/presentation/screens/home_screens/account.dart';
+import 'package:shopie/features/main_home/presentation/screens/home_screens/cart.dart';
+import 'package:shopie/features/main_home/presentation/screens/home_screens/home.dart';
+import 'package:shopie/features/main_home/presentation/screens/home_screens/saved.dart';
+import 'package:shopie/features/main_home/presentation/screens/home_screens/search.dart';
 
 import '../../../../core/themes/my_colors.dart';
-import '../widgets/discover.dart';
-import '../widgets/my_catigory.dart';
-import '../widgets/my_search_bar.dart';
+import '../../../../core/themes/text_themes.dart';
 
 class MainHome extends StatefulWidget {
   const MainHome({super.key});
@@ -15,48 +18,66 @@ class MainHome extends StatefulWidget {
 
 class _MainHomeState extends State<MainHome> {
   int _currentIndex = 0;
-
+  List pages = [
+    Home(),
+    Search(),
+    Cart(),
+    Saved(),
+    Account(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.white0,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-          child: Column(
-            children: [
-              Expanded(
-                child: ListView(
-                  children: [
-                    Discover(),
-                    verticalSpace(20),
-                    MySearchBar(),
-                    verticalSpace(20),
-                    MyCatigory(),
-                    verticalSpace(20),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+      body: pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        items: const [
+        type: BottomNavigationBarType.fixed,
+        iconSize: 40,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        selectedLabelStyle:
+            MyStyle.mediam12white.copyWith(color: MyColors.black9),
+        unselectedLabelStyle:
+            MyStyle.mediam12white.copyWith(color: MyColors.white4),
+        backgroundColor: MyColors.white0,
+        elevation: 0,
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: ImageIcon(AssetImage('assets/icons/Home.png'),
+                color: MyColors.white4),
+            activeIcon: ImageIcon(AssetImage('assets/icons/Home.png'),
+                color: MyColors.black9),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon: ImageIcon(AssetImage('assets/icons/Search.png'),
+                color: MyColors.white4),
+            activeIcon: ImageIcon(AssetImage('assets/icons/Search.png'),
+                color: MyColors.black9),
             label: 'Search',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark),
+            icon: ImageIcon(AssetImage('assets/icons/Heart1.png'),
+                color: MyColors.white4),
+            activeIcon: ImageIcon(AssetImage('assets/icons/Heart1.png'),
+                color: MyColors.black9),
             label: 'Saved',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
+            icon: ImageIcon(AssetImage('assets/icons/Cart.png'),
+                color: MyColors.white4),
+            activeIcon: ImageIcon(AssetImage('assets/icons/Cart.png'),
+                color: MyColors.black9),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: ImageIcon(AssetImage('assets/icons/User.png'),
+                color: MyColors.white4),
+            activeIcon: ImageIcon(
+                AssetImage(
+                  'assets/icons/User.png',
+                ),
+                color: MyColors.black9),
             label: 'Account',
           ),
         ],

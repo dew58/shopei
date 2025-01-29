@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shopie/features/auth/presentation/screens/log_in.dart';
+import 'package:shopie/features/main_home/logic/home_cubit.dart';
 import 'package:shopie/features/main_home/presentation/screens/main_home.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/auth/presentation/screens/sign_up.dart';
 import '../../features/auth/presentation/screens/on_bording.dart';
 import 'routes_name.dart';
@@ -19,7 +20,11 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const LogIn());
 
       case Routers.home:
-        return MaterialPageRoute(builder: (_) => const MainHome());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (_) => HomeCubit(),
+                  child: const MainHome(),
+                ));
 
       default:
         return MaterialPageRoute(

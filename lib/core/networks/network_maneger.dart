@@ -1,19 +1,28 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 import '../constants/API_end_points.dart';
 
 class NetworkManager {
   final dio = Dio();
 
-  Future<void> getProducts() async {
-    final response = await dio.get(APIEndPoints.getProduct);
-    print(response.data);
+  Future<List<dynamic>> getProducts() async {
+    try {
+      final response = await dio.get(APIEndPoints.getProduct);
+      return response.data;
+    } catch (e) {
+      debugPrint(e.toString());
+      return [];
+    }
   }
-  // Dio dio = Dio(
-  //   BaseOptions(
-  //     baseUrl: APIEndPoints.getProduct,
-  //     connectTimeout: Duration(milliseconds: 5000),
-  //     receiveTimeout: Duration(milliseconds: 3000),
-  //   ),
-  // );
+
+  Future<List<dynamic>> getCategory() async {
+    try {
+      final response = await dio.get(APIEndPoints.getCatigory);
+      return response.data;
+    } catch (e) {
+      debugPrint(e.toString());
+      return [];
+    }
+  }
 }
