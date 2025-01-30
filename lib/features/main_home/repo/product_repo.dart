@@ -10,7 +10,7 @@ class ProductRepo {
             element.images =
                 element.images?.map((image) => cleanImageUrl(image)).toList();
           });
-    // cleanImageUrl(respopnse[].images[0]);
+
     return respopnse;
   }
 
