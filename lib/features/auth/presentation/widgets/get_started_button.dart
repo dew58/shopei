@@ -15,7 +15,7 @@ class GetStartedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MyButtons(
       function: () {
-        context.pushNamed(Routers.logIn);
+        context.pushNamed(Routers.singUp);
       },
       color: MyColors.black9,
       widget: Row(
