@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopie/features/auth/logic/cubit/auth_cubit.dart';
 import 'package:shopie/features/auth/presentation/screens/log_in.dart';
 import 'package:shopie/features/main_home/logic/home_cubit.dart';
 import 'package:shopie/features/main_home/presentation/screens/main_home.dart';
@@ -14,7 +15,11 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const OnBording());
 
       case Routers.singUp:
-        return MaterialPageRoute(builder: (_) => const SignUp());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider<AuthCubit>.value(
+                  value: AuthCubit(),
+                  child: const SignUp(),
+                ));
 
       case Routers.logIn:
         return MaterialPageRoute(builder: (_) => const LogIn());
